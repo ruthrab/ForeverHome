@@ -1,0 +1,54 @@
+.banner {
+	background-image: url("/assets/images/Banner.png");
+	background-position: center top;
+	background-repeat: no-repeat;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size: cover;
+	background-size: cover;
+	min-height: 600px;
+}
+.banner-text {
+	padding-top: 15%;
+}
+.banner-text h1 {
+	color: #000000;
+	font-family: "Open Sans", Arial, sans-serif;
+	font-size: 36px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.banner-text p {
+	color: #000;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
+	margin-top: 30px;
+	margin-bottom: 80px;
+}
+  .section {
+	padding-top: 20px;
+	padding-right: 0;
+	padding-bottom: 100px;
+	padding-left: 0;
+}
+.service-section {
+	padding-top: 20px;
+}
+.services {
+	margin-bottom: 20px;
+}
+.services-content {
+	padding: 30px 30px 20px;
+	margin-top: 30px;
+	background: #FBFBFB;
+	border: 1px solid #fff;
+}
+.services .icon {
+	color: #F05DA3;
+	font-size: 38px;
+	padding-left: 15px;
+	float: left;
+	background: #fff;
+	padding: 20px;
+}
