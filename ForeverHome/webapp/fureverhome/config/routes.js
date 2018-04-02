@@ -38,7 +38,11 @@ module.exports.routes = {
 'GET /session/login': 'SessionController.login',
 'GET /user/register': 'UserController.registerForm',
 'POST /user/create': 'UserController.create',
-'POST session/create': 'SessionController.create'
+'POST /session/create': 'SessionController.create',
+'GET /shelter/edit' : 'ShelterController.edit',
+'GET /shelter/new': 'ShelterController.new',
+'POST shelter/create': 'ShelterController.create',
+'GET /shelter/update': 'ShelterController.update'
 
   /***************************************************************************
   *                                                                          *

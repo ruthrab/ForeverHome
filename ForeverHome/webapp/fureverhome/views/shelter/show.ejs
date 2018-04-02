@@ -1,0 +1,12 @@
+<div class='container'>
+        <h1><%= shelter.shelterName %> </h1>	
+        <h3><%= shelter.summary %> </h3>
+        <hr>
+        <h3>contact: <%= shelter.phonenumber %> </br> <%= shelter.managingAccount.email %> </h3>
+
+        
+        <% if(shelter.managingAccount.id == session.User.id) { %>
+        <a class="btn btn-medium btn-primary" href="/shelter/edit/<%= shelter.id %>">Edit</a>
+        <% } %>
+        
+    </div>

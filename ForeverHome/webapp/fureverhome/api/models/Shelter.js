@@ -6,9 +6,23 @@
  */
 
 module.exports = {
-
+  schema: true,
   attributes: {
-
+    shelterName:{
+      type: 'string'
+    },
+    phonenumber:{
+      type: 'string'
+    },
+    summary:{
+      type: 'string'
+    },
+    location:{
+      type: 'string'
+    },
+    managingAccount:{
+      model: 'user'
+    }
   }
 };
 

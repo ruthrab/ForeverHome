@@ -47,8 +47,10 @@ module.exports = {
               }
             req.session.authenticated = true;
             req.session.User = user;
-            res.json(user);
-            //res.redirect('/');
+            if(req.session.User.isShelter){
+              return res.redirect('/shelter/new');
+            }
+            return res.redirect('/');
         });
     }
 };

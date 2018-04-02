@@ -50,8 +50,32 @@ module.exports = {
 				// Log user in
 				req.session.authenticated = true;
 				req.session.User = user;
-                res.redirect('/');
+				Shelter.findOne({managingAccount: user.id}).exec(function(err,shelter){
+					if(shelter){
+						req.session.Shelter = shelter;
+						res.redirect('shelter/show/'+shelter.id);
+					}else{
+						res.redirect('/');
+					}
+				});
+                
 			});
+		});
+	},
+
+	destroy: function(req, res, next) {
+
+		User.findOne(req.session.User.id, function foundUser(err, user) {
+
+			var userId = req.session.User.id;
+
+			if (user) {
+				// Wipe out the session (log out)
+				req.session.destroy();
+
+				// Redirect the browser to the sign-in screen
+				res.redirect('/session/login');
+			}
 		});
 	}
 };
