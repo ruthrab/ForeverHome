@@ -9,7 +9,6 @@ module.exports = {
 	'edit': function(req, res){
         // Find the user from the id passed in via params
         Shelter.findOne(req.param('id')).populate('managingAccount').exec(function(err,shelter){
-            console.log(shelter + 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
             return res.view({shelter: shelter});
         });
     },
@@ -17,9 +16,13 @@ module.exports = {
         return res.view('shelter/new');
     },
     'show': function(req,res){
-        Shelter.findOne(req.param('id')).populate('managingAccount').exec(function(err,shelter){return res.view({
-            shelter: shelter
-          });});
+        Shelter.findOne(req.param('id')).populate('managingAccount').exec(function(err,shelter){
+            Pet.find({shelterCreator:shelter.id}).exec(function(err, pets){
+                return res.view({
+                     shelter: shelter, pets: pets
+                       });
+            });
+    });
           
     },
     create: function(req,res,next){

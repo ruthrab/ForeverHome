@@ -46,9 +46,29 @@
               <li class="nav-item active">
                 <a class="nav-link" href="/">Home</a>
               </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  View
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/shelter">View Shelters</a>
+                  <% if (session.authenticated) { %>
+                    <% if (session.User.isShelter) { %>
+                  <a class="dropdown-item" href="/shelter/show/<%= session.Shelter.id %>">View Profile</a>
+                  <% } %>
+                  <% } %>
+                </div>
+              </li>
+              <% if (!session.authenticated) { %>
               <li class="nav-item active">
                 <a class="nav-link" href="/session/login">Login</a>
               </li>
+              <% } %>
+                <% if (session.authenticated) { %>
+              <li class="nav-iem active"></li>
+                    <a class="btn btn-primary navbar-btn navbar-right" href="/session/destroy">Logout</a>
+              </li>
+              <% } %>
           </div>
         </nav>
     <div>

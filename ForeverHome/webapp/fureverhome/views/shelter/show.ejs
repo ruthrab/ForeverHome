@@ -1,12 +1,52 @@
-<div class='container'>
+<div class='container mb-4'>
         <h1><%= shelter.shelterName %> </h1>	
         <h3><%= shelter.summary %> </h3>
         <hr>
         <h3>contact: <%= shelter.phonenumber %> </br> <%= shelter.managingAccount.email %> </h3>
 
-        
+        <% if(session.authenticated){%>
         <% if(shelter.managingAccount.id == session.User.id) { %>
         <a class="btn btn-medium btn-primary" href="/shelter/edit/<%= shelter.id %>">Edit</a>
+        <a class="btn btn-medium btn-primary" href="/pet/new">Add a Pet</a>
         <% } %>
-        
+        <% } %> 
+    </div>
+    <div class="container">
+        <h3>Pets</h3>
+        <table class='table'>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Breed</th>
+                <th>Sex</th>
+                <th></th>
+                <% if(session.authenticated){%>
+                    <% if(shelter.managingAccount.id == session.User.id){ %>
+                <th></th>
+                <th></th>
+                <% } %>
+                <% } %>
+            </tr>
+            
+    
+            <% _.each(pets, function(pet) { %>
+            <tr data-id="<%= pet.id %>" data-model="pet">
+                <td><%= pet.name %></td>
+                <td><%= pet.typeOfPet %></td>
+                <td><%= pet.breed %></td>
+                <td><%= pet.sex %></td>
+                    <td><a href="/pet/show/<%= pet.id %>" class="btn btn-sm btn-primary">Show</a></td>
+                    <% if(session.authenticated){%>
+                    <% if(shelter.managingAccount.id == session.User.id){ %>
+                <td><a href="/pet/edit/<%= pet.id %>" class="btn btn-sm btn-warning">Edit</a></td>
+                <td><form action="/pet/destroy/<%= pet.id %>" method="POST">
+                    <input type="hidden" name="_method" value="delete"/>
+                    <input type="submit" class="btn btn-sm btn-danger" value="Delete"/>
+                    <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                </form></td>
+                <% } %>
+                <% } %>
+            </tr> 
+            <% }) %>
+        </table>
     </div>

@@ -42,7 +42,9 @@ module.exports.routes = {
 'GET /shelter/edit' : 'ShelterController.edit',
 'GET /shelter/new': 'ShelterController.new',
 'POST shelter/create': 'ShelterController.create',
-'GET /shelter/update': 'ShelterController.update'
+'GET /shelter/update': 'ShelterController.update',
+'GET /pet/new': 'PetController.new',
+'POST /session/destroy' : 'SessionController.destroy'
 
   /***************************************************************************
   *                                                                          *

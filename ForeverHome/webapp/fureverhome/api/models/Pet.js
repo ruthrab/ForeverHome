@@ -6,9 +6,32 @@
  */
 
 module.exports = {
-
+  schema: true,
   attributes: {
-
+    name:{
+      type: 'string'
+    },
+    size:{
+      type: 'string',
+    },
+    age:{
+      type:'string'
+    },
+    typeOfPet:{
+      type: 'string'
+    },
+    breed:{
+      type:'string'
+    },
+    summary:{
+      type:'string'
+    },
+    sex:{
+      type: 'string',
+    },
+    shelterCreator:{
+      model: 'shelter'
+    }
   }
 };
 
