@@ -54,7 +54,9 @@
                   <a class="dropdown-item" href="/shelter">View Shelters</a>
                   <% if (session.authenticated) { %>
                     <% if (session.User.isShelter) { %>
+                      <% if(session.Shelter != undefined) { %>
                   <a class="dropdown-item" href="/shelter/show/<%= session.Shelter.id %>">View Profile</a>
+                  <% } %>
                   <% } %>
                   <% } %>
                 </div>
