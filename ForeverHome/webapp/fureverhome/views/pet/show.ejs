@@ -8,10 +8,11 @@
     <h3><%= pet.sex %> </h3>
     <hr>
 
-    
+    <% if(session.User != undefined){ %>
     <% if(pet.shelterCreator.managingAccount == session.User.id) { %>
     <a class="btn btn-medium btn-primary" href="/pet/edit/<%= pet.id %>">Edit</a>
     <a class="btn btn-medium btn-danger" href="/pet/destroy/<%= pet.id %>">Delete</a>
+    <% } %>
     <% } %>
     
 </div>
