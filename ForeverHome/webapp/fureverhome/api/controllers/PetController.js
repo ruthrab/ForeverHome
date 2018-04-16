@@ -48,6 +48,12 @@ module.exports = {
             return res.redirect('/pet/show/' + pet.id);
         });
     },
+    index: function(req,res,next){
+        Pet.find().populate('shelterCreator').exec(function foundPets (err,pets){
+            if(err)return next(err);
+            res.view({pets:pets});
+        });
+    },
     update: function(req,res,next){
         var petObj = {
             name: req.param('name'),

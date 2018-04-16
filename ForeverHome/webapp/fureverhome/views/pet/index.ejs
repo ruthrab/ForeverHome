@@ -1,0 +1,24 @@
+<div class="container">
+        <h3>Pets</h3>
+            <% _.each(pets, function(pet) { %>
+                <div class="card" style="width: 23rem;">
+
+                        <!--Card image-->
+                        <img class="img-fluid" src="" alt="Card image cap">
+                    
+                        <!--Card content-->
+                        <div class="card-body">
+                            <!--Title-->
+                            <h4 class="card-title"><%= pet.name %></h4>
+                            <!--Text-->
+                            <p class="card-text"><%= pet.summary %></p>
+                        </div>
+                    
+                    </div>
+            <!-- <tr data-id="<%= pet.id %>" data-model="pet">
+                <td><%= pet.name %></td>
+                <td><%= pet.typeOfPet %></td>
+                <td><%= pet.breed %></td>
+                <td><%= pet.sex %></td> -->
+            <% }) %>
+    </div>

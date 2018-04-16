@@ -25,6 +25,12 @@ module.exports = {
     });
           
     },
+    index: function(req,res,next){
+        Shelter.find().populate('managingAccount').exec(function foundShelters (err,shelters){
+            if(err)return next(err);
+            res.view({shelters:shelters});
+        });
+    },
     create: function(req,res,next){
         var shelterObj = {
             shelterName: req.param('shelterName'),
