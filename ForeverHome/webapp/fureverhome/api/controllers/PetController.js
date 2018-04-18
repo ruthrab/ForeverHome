@@ -16,9 +16,12 @@ module.exports = {
         res.view('pet/new');
     },
     'show': function(req,res){
-        Pet.findOne(req.param('id')).populate('shelterCreator').exec(function(err,pet){return res.view({
-            pet: pet
-          });});
+        Pet.findOne(req.param('id')).populate('shelterCreator').exec(function(err,pet){
+            if(pet == undefined){
+                return res.redirect('404');
+            }
+            return res.view({ pet: pet });
+        });
           
     },
     create: function(req,res,next){

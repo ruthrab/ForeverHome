@@ -17,10 +17,11 @@ module.exports = {
     },
     'show': function(req,res){
         Shelter.findOne(req.param('id')).populate('managingAccount').exec(function(err,shelter){
+            if(shelter == undefined){
+                return res.redirect('404');
+            }
             Pet.find({shelterCreator:shelter.id}).exec(function(err, pets){
-                return res.view({
-                     shelter: shelter, pets: pets
-                       });
+                return res.view({shelter: shelter, pets: pets});
             });
     });
           
