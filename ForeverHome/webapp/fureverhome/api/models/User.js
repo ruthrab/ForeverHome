@@ -39,6 +39,9 @@ module.exports = {
   beforeCreate: function (values, next) {
 
     // This checks to make sure the password and password confirmation match before creating record
+    if(values.password == undefined || values.confirmation == undefined){
+      return next({formErrors: ["Please fully complete the form"]});
+    }
     if (!values.password || values.password != values.confirmation) {
       return next({formErrors: ["Password doesn't match password confirmation."]});
     }

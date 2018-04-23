@@ -1,21 +1,40 @@
-<div class="container">
-            <div class="row">
-                    <% _.each(pets, function(pet) { %>
-                        <!-- <div class="col-sm-3"> -->
-                            <div class="card"  style="width: 23rem;">
-                                <!--Card image-->
-                                <img class="img-fluid" src="/images/Small Roxie.jpg" alt="<%= pet.name %> Image">
-                                <!--Card content-->
-                                <div class="card-body">
-                                    <!--Title-->
-                                    <h4 class="card-title"><%= pet.name %></h4>
-                                    <!--Text-->
-                                    <p class="card-text"><%= pet.summary %></p>
-                                    <!--Button-->
-                                    <a href="/pet/show/<%= pet.id %>" class="btn btn-primary float-right">View</a>
-                                </div>
-                            </div>
-                        <!-- </div> -->
-                    <% }) %>
+<div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+              <button type="button" data-filter="all">All</button>
+              <button type="button" data-filter=".Dog">Dog</button>
+              <button type="button" data-filter=".Cat">Cat</button>
+          </ul>
+        </div>
+      </nav>
+      <div class="container row mt-4">
+        <% _.each(pets, function(pet) { %>
+            <!-- <div class="col-sm-3"> -->
+              <div class="mix <%= pet.typeOfPet %>">
+                <div class="card"  style="width: 23rem;">
+                    <!--Card image-->
+                    <img class="img-fluid" src="/images/Small Roxie.jpg" alt="<%= pet.name %> Image">
+                    <!--Card content-->
+                    <div class="card-body">
+                        <!--Title-->
+                        <h4 class="card-title"><%= pet.name %></h4>
+                        <!--Text-->
+                        <p class="card-text"><%= pet.summary %></p>
+                        <!--Button-->
+                        <a href="/pet/show/<%= pet.id %>" class="btn btn-primary float-right">View</a>
+                    </div>
+                </div>
+              </div>
+            <!-- </div> -->
+        <% }) %>
             </div>
+    </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.0/mixitup.min.js"></script>
+<script>
+    var containerEl = document.querySelector('.container');
+
+    var mixer = mixitup(containerEl);
+</script>
