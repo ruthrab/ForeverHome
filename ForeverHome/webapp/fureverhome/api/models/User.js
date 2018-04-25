@@ -46,7 +46,7 @@ module.exports = {
       return next({formErrors: ["Password doesn't match password confirmation."]});
     }
 
-    require('bcrypt').hash(values.password, 10, function passwordEncrypted(err, encryptedPassword) {
+    require('bcrypt-nodejs').hash(values.password, 10, function passwordEncrypted(err, encryptedPassword) {
       if (err) return next(err);
       values.encryptedPassword = encryptedPassword;
       // values.online= true;

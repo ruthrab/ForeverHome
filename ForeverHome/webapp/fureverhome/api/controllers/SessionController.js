@@ -5,7 +5,7 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt-nodejs');
 module.exports = {
 	'login': function(req,res){
         res.view('session/login');
