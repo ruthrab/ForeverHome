@@ -31,6 +31,9 @@ module.exports = {
     },
     shelterCreator:{
       model: 'shelter'
+    },
+    linkToImage:{
+      type: 'string'
     }
   }
 };

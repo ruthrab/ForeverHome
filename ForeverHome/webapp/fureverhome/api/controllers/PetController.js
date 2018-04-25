@@ -33,9 +33,9 @@ module.exports = {
             breed: req.param('breed'),
             summary: req.param('summary'),
             sex: req.param('sex'),
+            linkToImage: req.param('link'),
             shelterCreator: req.session.Shelter.id
           }
-        console.log(petObj);
         Pet.create(petObj, function petCreated(err, pet){
                 if(err) {
                     console.log(err);
@@ -66,6 +66,7 @@ module.exports = {
             breed: req.param('breed'),
             summary: req.param('summary'),
             sex: req.param('sex'),
+            linkToImage: req.param('link'),
             shelterCreator: req.session.Shelter.id
           }
           Pet.update(req.param('id'), petObj, function petUpdated(err) {
