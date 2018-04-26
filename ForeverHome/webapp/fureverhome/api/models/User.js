@@ -4,7 +4,7 @@
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
-
+var bcryptNodejs = require("bcrypt-nodejs")
 module.exports = {
   schema: true,
   attributes: {
@@ -46,7 +46,8 @@ module.exports = {
       return next({formErrors: ["Password doesn't match password confirmation."]});
     }
 
-    require('bcrypt').hash(values.password, 10, function passwordEncrypted(err, encryptedPassword) {
+    bcryptNodejs.hash(values.password, bcryptNodejs.genSaltSync(10), null ,function passwordEncrypted(err, encryptedPassword) {
+      console.log(err);
       if (err) return next(err);
       values.encryptedPassword = encryptedPassword;
       // values.online= true;

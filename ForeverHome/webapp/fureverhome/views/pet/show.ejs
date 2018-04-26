@@ -7,6 +7,17 @@
     <h3><%= pet.breed %> </h3>
     <img class="img-fluid" src="<%= pet.linkToImage %>" alt="<%= pet.name %> Image"></img>
     <h3><%= pet.sex %> </h3>
+    <% if(session.authenticated){ %>
+        <% if(session.User != undefined){ %>
+        <% if(session.Shelter == undefined){ %>
+            <form class="form" action="/favorites/createFavorite" method="POST">
+                <input type="hidden" name="petId" type="number" value="<%= pet.id %>" />
+                <input type="hidden" name="userId" type="number" value="<%= session.User.id%>" />
+                <button class="btn btn-primary" type="submit">Favorite</button>
+            </form>
+        <% } %>
+        <% } %>  
+        <% } %>
     <hr>
 
     <% if(session.User != undefined){ %>

@@ -54,7 +54,14 @@ module.exports = {
     index: function(req,res,next){
         Pet.find().populate('shelterCreator').exec(function foundPets (err,pets){
             if(err)return next(err);
-            res.view({pets:pets});
+            if(req.session.User != undefined){
+            Favorites.find({userId:req.session.User.id}).exec(function(err, favorites){
+                if(err)return next(err);
+                return res.view({favorites: favorites, pets: pets});
+            });
+            }else{
+                return res.view({pets:pets});
+            }
         });
     },
     update: function(req,res,next){

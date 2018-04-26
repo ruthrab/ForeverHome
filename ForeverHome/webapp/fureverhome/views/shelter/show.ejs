@@ -24,6 +24,7 @@
                     <% if(shelter.managingAccount.id == session.User.id){ %>
                 <th></th>
                 <th></th>
+                <th></th>
                 <% } %>
                 <% } %>
             </tr>
@@ -46,6 +47,19 @@
                 </form></td>
                 <% } %>
                 <% } %>
+                    <% if(session.authenticated){ %>
+                        <% if(session.User != undefined){ %>
+                        <% if(session.Shelter == undefined){ %>
+                            <td>
+                            <form class="form" action="/favorites/createFavorite" method="POST">
+                                <input type="hidden" name="petId" type="number" value="<%= pet.id %>" />
+                                <input type="hidden" name="userId" type="number" value="<%= session.User.id%>" />
+                                <button class="btn btn-primary" type="submit">Favorite</button>
+                            </form>
+                        <% } %>
+                        <% } %>  
+                        <% } %>
+                </td>
             </tr> 
             <% }) %>
         </table>

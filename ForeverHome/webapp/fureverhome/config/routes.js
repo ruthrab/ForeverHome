@@ -44,7 +44,8 @@ module.exports.routes = {
 'POST shelter/create': 'ShelterController.create',
 'GET /shelter/update': 'ShelterController.update',
 'GET /pet/new': 'PetController.new',
-'POST /session/destroy' : 'SessionController.destroy'
+'POST /session/destroy' : 'SessionController.destroy',
+'POST /favorites/createFavorite' : 'FavoritesController.create'
 
   /***************************************************************************
   *                                                                          *
