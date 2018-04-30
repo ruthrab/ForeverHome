@@ -53,12 +53,16 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="/shelter">View Shelters</a>
+                  <a class="dropdown-item" href="/pet">View Pets</a>
                   <% if (session.authenticated) { %>
                     <% if (session.User.isShelter) { %>
                       <% if(session.Shelter != undefined) { %>
-                  <a class="dropdown-item" href="/shelter/show/<%= session.Shelter.id %>">View Profile</a>
-                  <% } %>
-                  <% } %>
+                        <a class="dropdown-item" href="/shelter/show/<%= session.Shelter.id %>">View Profile</a>
+                      <% } %>
+                    <% } %>
+                    <% if(session.Shelter == undefined){ %>
+                      <a class="dropdown-item" href="/favorites">View Favorites</a> 
+                    <% } %>
                   <% } %>
                 </div>
               </li>

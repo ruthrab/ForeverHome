@@ -29,8 +29,8 @@
     <h1 class="h3 mb-3 font-weight-normal text-center">Create an Account</h1>
     <% if(flash && flash.formErrors) { %>
 		<ul class="alert alert-success">
-	<% Object.keys(flash.formErrors).forEach(function(error) { %>
-		<li><%- JSON.stringify(flash.formErrors[error],["message"]) %></li>
+      <% var thing =  JSON.stringify(flash.err[error],["message"]); %>
+      <li><%- thing.substring(12, thing.length-2) %></li>
 	<% }) %>
 	</ul>
 	<% } %>

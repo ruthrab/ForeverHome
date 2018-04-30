@@ -19,7 +19,7 @@ module.exports = {
         });
     },
     index: function(req,res,next){
-        Favorites.find(req.param('id')).exec(function foundFavorites (err,favorites){
+        Favorites.find({userId: req.session.User.id}).populate('petId').exec(function foundFavorites (err,favorites){
             if(err)return next(err);
             res.view({favorites:favorites});
         });

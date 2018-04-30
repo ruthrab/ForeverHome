@@ -32,6 +32,18 @@ module.exports.policies = {
      'edit': "seeProfile",
      create: "shelter",
      update: "seeProfile"
+   },
+   favorites:{
+     index: "isFavorite",
+     destroy:"isFavorite",
+     create:"isFavorite"
+   },
+   pet:{
+     'new': "petStuff",
+     'edit': "petStuff",
+     destroy: "petStuff",
+     create: "petStuff",
+     update: "petStuff"
    }
 
   /***************************************************************************

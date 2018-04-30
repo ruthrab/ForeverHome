@@ -21,8 +21,16 @@ module.exports = {
                 return res.redirect('404');
             }
             Pet.find({shelterCreator:shelter.id}).exec(function(err, pets){
-                return res.view({shelter: shelter, pets: pets});
+                if(req.session.User != undefined){
+                    Favorites.find({userId:req.session.User.id}).exec(function(err, favorites){
+                        if(err)return next(err);
+                        return res.view({favorites: favorites, pets: pets, shelter: shelter});
+                    });
+                    }else{
+                        return res.view({pets:pets, shelter:shelter});
+                    }
             });
+        
     });
           
     },

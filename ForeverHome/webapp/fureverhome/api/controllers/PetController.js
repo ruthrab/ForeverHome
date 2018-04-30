@@ -20,7 +20,14 @@ module.exports = {
             if(pet == undefined){
                 return res.redirect('404');
             }
-            return res.view({ pet: pet });
+            if(req.session.User != undefined){
+                Favorites.find({userId:req.session.User.id, petId: pet.id}).exec(function(err, favorites){
+                    if(err)return next(err);
+                    return res.view({favorites: favorites, pet: pet});
+                });
+                }else{
+                    return res.view({pet:pet});
+                }
         });
           
     },

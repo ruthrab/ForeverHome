@@ -16,11 +16,11 @@
                     <div class="form-group has-float-label">
                             <label for="state">Type:</label>
                             <select class="form-control" id="type" name="typeOfPet">
-                                <option>Dog</option>
-                                <option>Cat</option>
-                                <option>Bird</option>
-                                <option>Rodent</option>
-                                <option>Other</option>
+                                <option value="Dog"<% if(pet.typeOfPet == 'Dog'){ %> selected <% }%>>Dog</option>
+                                <option value="Cat"<% if(pet.typeOfPet == 'Cat'){ %> selected <% }%>>Cat</option>
+                                <option value="Bird"<% if(pet.typeOfPet == 'Bird'){ %> selected <% }%>>Bird</option>
+                                <option value="Rodent"<% if(pet.typeOfPet == 'Rodent'){ %> selected <% }%>>Rodent</option>
+                                <option value="Other"<% if(pet.typeOfPet == 'Other'){ %> selected <% }%>>Other</option>
                               </select>
                     </div><!--form-group has-float-label-->
                     <div class="form-group has-float-label">
@@ -30,16 +30,16 @@
                     <div class="form-group has-float-label">
                         <label for="state">Sex:</label>
                         <select class="form-control" id="sexType" name="sex">
-                            <option>Male</option>
-                            <option>Female</option>
+                            <option value="Male"<% if(pet.sex == 'Male'){ %> selected <% }%>>Male</option>
+                            <option value="Female"<% if(pet.sex == 'Female'){ %> selected <% }%>>Female</option>
                           </select>
                     </div><!--form-group has-float-label-->
                     <div class="form-group has-float-label">
                             <label for="state">Size:</label>
                             <select class="form-control" id="size" name="size">
-                                <option> Small</option>
-                                <option>Medium</option>
-                                <option>Large</option>
+                                <option value="Small"<% if(pet.size == 'Small'){ %> selected <% }%>> Small</option>
+                                <option value="Medium"<% if(pet.size == 'Medium'){ %> selected <% }%>>Medium</option>
+                                <option value="Large"<% if(pet.size == 'Large'){ %> selected <% }%>>Large</option>
                               </select>
                         </div><!--form-group has-float-label-->
                     <div class="form-group has-float-label">
@@ -59,11 +59,3 @@
                     </div>
                 </form>
 </div><!--container-->
-<script>
-     var element = document.getElementById('size');
-     element.value = pet.size;
-     element = document.getElementById('sexType');
-     element.value = pet.sex;
-     element = document.getElementById('type');
-     element.value = pet.typeOfPet;
-</script>

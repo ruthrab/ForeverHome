@@ -12,7 +12,7 @@ module.exports = {
       type: 'integer'
     },
     petId:{
-      type: 'integer'
+      model: 'pet'
     }
   }
 };
