@@ -45,7 +45,7 @@ module.exports = {
             shelterName: req.param('shelterName'),
             phonenumber: req.param('phone'),
             summary: req.param('summary'),
-            location: req.param('location'),
+            // location: req.param('location'),
             managingAccount: req.session.User.id
           }
         Shelter.create(shelterObj, function shelterCreated(err, shelter){
@@ -69,7 +69,7 @@ module.exports = {
             shelterName: req.param('shelterName'),
             phonenumber: req.param('phone'),
             summary: req.param('summary'),
-            location: req.param('location'),
+            // location: req.param('location'),
             managingAccount: req.session.User.id
           }
           Shelter.update(req.param('id'), shelterObj, function shelterUpdated(err) {

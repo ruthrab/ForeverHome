@@ -17,9 +17,9 @@ module.exports = {
     summary:{
       type: 'string'
     },
-    location:{
-      type: 'string'
-    },
+    // location:{
+    //   type: 'string'
+    // },
     managingAccount:{
       model: 'user'
     }

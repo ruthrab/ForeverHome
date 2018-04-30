@@ -20,10 +20,10 @@
         <label for="comment">Description: </label>
         <textarea class="form-control" id="comment" name = "summary" rows="3"><%- shelter.summary %></textarea>
     </div>
-    <div class="control-group mb-4">
+    <!-- <div class="control-group mb-4">
         <label for="input" class="sr-only">Location(Area Code)</label>
         <input type="number" id="inputLocation"class="form-control" placeholder="45040" name="location" value="<%- shelter.location %>">
-      </div>
+      </div> -->
     <input type="hidden" name="_csrf" value="<%= _csrf %>" />
     <button class="btn btn-lg btn-primary btn-block" type="submit">Submit Changes</button>
   </form>
