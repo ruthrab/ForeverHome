@@ -8,33 +8,32 @@
 module.exports = {
   schema: true,
   attributes: {
-    name:{
+    name: {
       type: 'string'
     },
-    size:{
+    size: {
       type: 'string',
     },
-    age:{
-      type:'string'
-    },
-    typeOfPet:{
+    age: {
       type: 'string'
     },
-    breed:{
-      type:'string'
+    typeOfPet: {
+      type: 'string'
     },
-    summary:{
-      type:'string'
+    breed: {
+      type: 'string'
     },
-    sex:{
+    summary: {
+      type: 'string'
+    },
+    sex: {
       type: 'string',
     },
-    shelterCreator:{
+    shelterCreator: {
       model: 'shelter'
     },
-    linkToImage:{
+    linkToImage: {
       type: 'string'
     }
   }
 };
-

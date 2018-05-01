@@ -1,62 +1,71 @@
 <style>
-        .form-signup {
-          width: 100%;
-          max-width: 330px;
-          padding: 15px;
-          margin: 0 auto;
-        }
-    </style>
+  .form-signup {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+  }
+
+</style>
 <div class="container mt-4">
-                <form class="form-signup" action="/pet/create" method="POST">
-                    <legend class="text-center">Add a Pet</legend>
-                       <div class="form-group has-float-label">
-                        <label for="Pet's name">Name</label>
-                        <input class="form-control" id="Pet's name" type="Pet's description" name="name" placeholder="Pet's name" required/>
-                    </div><!--form-group has-float-label-->
-                    <div class="form-group has-float-label">
-                            <label for="state">Type:</label>
-                            <select class="form-control" id="type" name="typeOfPet">
-                                <option selected>Dog</option>
-                                <option>Cat</option>
-                                <option>Bird</option>
-                                <option>Rodent</option>
-                                <option>Other</option>
-                              </select>
-                    </div><!--form-group has-float-label-->
-                    <div class="form-group has-float-label">
-                            <label for="breeds">Breed</label>
-                            <input class="form-control" id="Pet's name" type="breeds" name="breed" placeholder="Breed" required/>
-                        </div><!--form-group has-float-label-->
-                    <div class="form-group has-float-label">
-                        <label for="state">Sex:</label>
-                        <select class="form-control" id="state" name="sex">
-                            <option selected>Male</option>
-                            <option>Female</option>
-                          </select>
-                    </div><!--form-group has-float-label-->
-                    <div class="form-group has-float-label">
-                            <label for="state">Size:</label>
-                            <select class="form-control" id="size" name="size">
-                                <option selected>Small</option>
-                                <option>Medium</option>
-                                <option>Large</option>
-                              </select>
-                        </div><!--form-group has-float-label-->
-                    <div class="form-group has-float-label">
-                            <label for="input">Age:</label>
-                            <input type="number" id="inputAge"class="form-control" placeholder="1" name="age" required>
-                    </div>           					
-                    <div class="form-group has-float-label">
-                            <label for="comment">Description:</label>
-                            <textarea class="form-control" rows="5" id="comment" name="summary"></textarea>
-                    </div><!--form-group has-float-label-->  
-                    <div class="form-group has-float-label">
-                        <label for="breeds">URL of pet image</label>
-                            <input class="form-control" id="link" name="link" placeholder="Link To Image">
-                    </div><!--form-group has-float-label-->
-                    <input type="hidden" name="_csrf" value="<%= _csrf %>" />
-                    <div>
-                          <button class="btn btn-block btn-primary" type="submit">Submit</button>
-                    </div>
-                </form>
-</div><!--container-->
+  <form class="form-signup" action="/pet/create" method="POST">
+    <legend class="text-center">Add a Pet</legend>
+    <div class="form-group has-float-label">
+      <label for="Pet's name">Name</label>
+      <input class="form-control" id="Pet's name" type="Pet's description" name="name" placeholder="Pet's name" required/>
+    </div>
+    <!--form-group has-float-label-->
+    <div class="form-group has-float-label">
+      <label for="state">Type:</label>
+      <select class="form-control" id="type" name="typeOfPet">
+        <option selected>Dog</option>
+        <option>Cat</option>
+        <option>Bird</option>
+        <option>Rodent</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <!--form-group has-float-label-->
+    <div class="form-group has-float-label">
+      <label for="breeds">Breed</label>
+      <input class="form-control" id="Pet's name" type="breeds" name="breed" placeholder="Breed" required/>
+    </div>
+    <!--form-group has-float-label-->
+    <div class="form-group has-float-label">
+      <label for="state">Sex:</label>
+      <select class="form-control" id="state" name="sex">
+        <option selected>Male</option>
+        <option>Female</option>
+      </select>
+    </div>
+    <!--form-group has-float-label-->
+    <div class="form-group has-float-label">
+      <label for="state">Size:</label>
+      <select class="form-control" id="size" name="size">
+        <option selected>Small</option>
+        <option>Medium</option>
+        <option>Large</option>
+      </select>
+    </div>
+    <!--form-group has-float-label-->
+    <div class="form-group has-float-label">
+      <label for="input">Age:</label>
+      <input type="number" id="inputAge" class="form-control" placeholder="1" name="age" required>
+    </div>
+    <div class="form-group has-float-label">
+      <label for="comment">Description:</label>
+      <textarea class="form-control" rows="5" id="comment" name="summary"></textarea>
+    </div>
+    <!--form-group has-float-label-->
+    <div class="form-group has-float-label">
+      <label for="breeds">URL of pet image</label>
+      <input class="form-control" id="link" name="link" placeholder="Link To Image">
+    </div>
+    <!--form-group has-float-label-->
+    <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+    <div>
+      <button class="btn btn-block btn-primary" type="submit">Submit</button>
+    </div>
+  </form>
+</div>
+<!--container-->

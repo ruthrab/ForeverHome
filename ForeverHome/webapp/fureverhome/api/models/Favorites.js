@@ -6,14 +6,13 @@
  */
 
 module.exports = {
-  schema:true,
+  schema: true,
   attributes: {
-    userId:{
+    userId: {
       type: 'integer'
     },
-    petId:{
+    petId: {
       model: 'pet'
     }
   }
 };
-

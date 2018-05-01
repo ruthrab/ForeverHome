@@ -16,7 +16,10 @@ module.exports = {
 		// User.findOneByUsername(req.param('email')).done(function(err, user) {
         
 		User.findOne({username: req.body.username}).exec(function foundUser(err, user) {
-			if (err) return next(err);
+			if (err) {
+				console.log(err);
+				return next(err);
+			}
 			// If no user is found...
 			if (!user) {
 				var noAccountError = [{
@@ -32,7 +35,10 @@ module.exports = {
 
 			// Compare password from the form params to the encrypted password of the user found.
 			bcrypt.compare(req.body.password, user.encryptedPassword, function(err, valid) {
-				if (err) return next(err);
+				if (err){
+					console.log(err);
+					return next(err);
+				} 
 
 				// If the password from the form doesn't match the password from the database...
 				if (!valid) {

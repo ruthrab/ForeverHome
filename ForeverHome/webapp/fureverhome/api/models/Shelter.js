@@ -8,21 +8,20 @@
 module.exports = {
   schema: true,
   attributes: {
-    shelterName:{
+    shelterName: {
       type: 'string'
     },
-    phonenumber:{
+    phonenumber: {
       type: 'string'
     },
-    summary:{
+    summary: {
       type: 'string'
     },
     // location:{
     //   type: 'string'
     // },
-    managingAccount:{
+    managingAccount: {
       model: 'user'
     }
   }
 };
-

@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%=typeof title == 'undefined' ? 'Furever Home' : title%></title>
 
-    <!-- Viewport mobile tag for sensible mobile support -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <title>
+    <%=typeof title == 'undefined' ? 'Furever Home' : title%>
+  </title>
+
+  <!-- Viewport mobile tag for sensible mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
-    <!--
+  <!--
         Stylesheets and Preprocessors
         ==============================
 
@@ -27,63 +30,66 @@
             + Import stylesheets from other directories
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!--STYLES-->
-    <link rel="stylesheet" href="/styles/homepage.css">
-    <link rel="stylesheet" href="/styles/importer.css">
-    <!--STYLES END-->
-  
-  </head>
-  
-  <body>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-          <a class="navbar-brand" href="/">Furever Home</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="/">Home</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  View
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="/shelter">View Shelters</a>
-                  <a class="dropdown-item" href="/pet">View Pets</a>
-                  <% if (session.authenticated) { %>
-                    <% if (session.User.isShelter) { %>
-                      <% if(session.Shelter != undefined) { %>
-                        <a class="dropdown-item" href="/shelter/show/<%= session.Shelter.id %>">View Profile</a>
-                      <% } %>
-                    <% } %>
-                    <% if(session.Shelter == undefined){ %>
-                      <a class="dropdown-item" href="/favorites">View Favorites</a> 
-                    <% } %>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <!--STYLES-->
+  <link rel="stylesheet" href="/styles/homepage.css">
+  <link rel="stylesheet" href="/styles/importer.css">
+  <!--STYLES END-->
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">Furever Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            View
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/shelter">View Shelters</a>
+            <a class="dropdown-item" href="/pet">View Pets</a>
+            <% if (session.authenticated) { %>
+              <% if (session.User.isShelter) { %>
+                <% if(session.Shelter != undefined) { %>
+                  <a class="dropdown-item" href="/shelter/show/<%= session.Shelter.id %>">View Profile</a>
                   <% } %>
-                </div>
-              </li>
-              <% if (!session.authenticated) { %>
-              <li class="nav-item active">
-                <a class="nav-link" href="/session/login">Login</a>
-              </li>
-              <% } %>
-                <% if (session.authenticated) { %>
-              <li class="nav-iem active"></li>
-                    <a class="btn btn-primary navbar-btn navbar-right" href="/session/destroy">Logout</a>
-              </li>
-              <% } %>
+                    <% } %>
+                      <% if(session.Shelter == undefined){ %>
+                        <a class="dropdown-item" href="/favorites">View Favorites</a>
+                        <% } %>
+                          <% } %>
           </div>
-        </nav>
-    <div>
-    <%- body %>
+        </li>
+        <% if (!session.authenticated) { %>
+          <li class="nav-item active">
+            <a class="nav-link" href="/session/login">Login</a>
+          </li>
+          <% } %>
+            <% if (session.authenticated) { %>
+              <li class="nav-iem active"></li>
+              <a class="btn btn-primary navbar-btn navbar-right" href="/session/destroy">Logout</a>
+              </li>
+              <% } %>
     </div>
+  </nav>
+  <div>
+    <%- body %>
+  </div>
 
 
-    <!--
+  <!--
         Client-side Templates
         ========================
 
@@ -104,12 +110,12 @@
               stringfile before they're served.
     -->
 
-    <!--TEMPLATES-->
-    
-    <!--TEMPLATES END-->
+  <!--TEMPLATES-->
+  
+  <!--TEMPLATES END-->
 
 
-    <!--
+  <!--
 
       Client-side Javascript
       ========================
@@ -132,11 +138,13 @@
 
     -->
 
-    <!--SCRIPTS-->
-    <script src="/js/dependencies/sails.io.js"></script>
-    <!--SCRIPTS END-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.1/umd/popper.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+  <!--SCRIPTS-->
+  <script src="/js/dependencies/sails.io.js"></script>
+  <!--SCRIPTS END-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.1/umd/popper.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

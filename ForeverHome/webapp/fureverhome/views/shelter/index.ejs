@@ -1,21 +1,31 @@
 <div class="container mt-4">
-    <h3>Shelters</h3>
-    <table class='table'>
-        <tr>
-            <th>Name</th>
-            <th>Phone Number</th>
-            <th>Email</th>
-            <th>Location</th>
-            <th></th>
-        </tr>
-        <% _.each(shelters, function(shelter) { %>
-        <tr data-id="<%= shelter.id %>" data-model="shelter">
-            <td><%= shelter.shelterName %></td>
-            <td><%= shelter.phonenumber %></td>
-            <td><%= shelter.managingAccount.email %></td>
-            <td><%= shelter.location %></td>
-            <td><a href="/shelter/show/<%= shelter.id %>" class="btn btn-sm btn-primary">Show</a></td>
-        </tr> 
-        <% }) %>
-    </table>
+  <h3>Shelters</h3>
+  <table class='table'>
+    <tr>
+      <th>Name</th>
+      <th>Phone Number</th>
+      <th>Email</th>
+      <th>Location</th>
+      <th></th>
+    </tr>
+    <% _.each(shelters, function(shelter) { %>
+      <tr data-id="<%= shelter.id %>" data-model="shelter">
+        <td>
+          <%= shelter.shelterName %>
+        </td>
+        <td>
+          <%= shelter.phonenumber %>
+        </td>
+        <td>
+          <%= shelter.managingAccount.email %>
+        </td>
+        <td>
+          <%= shelter.location %>
+        </td>
+        <td>
+          <a href="/shelter/show/<%= shelter.id %>" class="btn btn-sm btn-primary">Show</a>
+        </td>
+      </tr>
+      <% }) %>
+  </table>
 </div>
