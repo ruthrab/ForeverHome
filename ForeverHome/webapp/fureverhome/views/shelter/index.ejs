@@ -5,7 +5,7 @@
       <th>Name</th>
       <th>Phone Number</th>
       <th>Email</th>
-      <th>Location</th>
+      <!-- <th>Location</th> -->
       <th></th>
     </tr>
     <% _.each(shelters, function(shelter) { %>
@@ -19,9 +19,9 @@
         <td>
           <%= shelter.managingAccount.email %>
         </td>
-        <td>
+        <!-- <td>
           <%= shelter.location %>
-        </td>
+        </td> -->
         <td>
           <a href="/shelter/show/<%= shelter.id %>" class="btn btn-sm btn-primary">Show</a>
         </td>

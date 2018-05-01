@@ -1,12 +1,33 @@
 <% if(favorites.length == 0){ %>
   <p>No favorite pets</p>
   <% } %>
+  <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-1 bg-light sidebar">
+          <ul class="nav flex-column mt-4 mb-4">
+            <h6>Filter By: </h6>
+            <li class="nav-item" data-mixitup-control data-filter="all">All</li>
+            <h6>Type </h6>
+            <li class="nav-item" data-mixitup-control data-filter=".Dog">Dog</li>
+            <li class="nav-item" data-mixitup-control data-filter=".Cat">Cat</li>
+            <li class="nav-item" data-mixitup-control data-filter=".Bird">Bird</li>
+            <li class="nav-item" data-mixitup-control data-filter=".Rodent">Rodent</li>
+            <li class="nav-item" data-mixitup-control data-filter=".Other">Other</li>
+            <h6>Size </h6>
+            <li class="nav-item" data-mixitup-control data-filter=".Small">Small</li>
+            <li class="nav-item" data-mixitup-control data-filter=".Medium">Medium</li>
+            <li class="nav-item" data-mixitup-control data-filter=".Large">Large</li>
+            <h6>Gender </h6>
+            <li class="nav-item" data-mixitup-control data-filter=".Male">Male</li>
+            <li class="nav-item" data-mixitup-control data-filter=".Female">Female</li>
+          </ul>
+        </nav>
+        <div class="container">
+          <div class="row">
     <% _.each(favorites, function(favorite) { %>
-      <!-- <div class="col-sm-3"> -->
-      <div class="mix <%= favorite.petId.typeOfPet %>">
-        <div class="card" style="width: 23rem; height: 23rem;">
-          <!--Card image-->
-          <img class="img-fluid" src="<%= favorite.petId.linkToImage %>" alt="<%= favorite.petId.name %> Image"></img>
+      <div class="col-md-4">
+          <div class="card mix <%= favorite.petId.typeOfPet %> <%= favorite.petId.sex %> <%= favorite.petId.size %>">
+            <img class="card-img-top img-fluid" src="<%= favorite.petId.linkToImage %>" alt="<%= favorite.petId.name %> Image" style="width: 23rem; height: 15rem;"></img>
           <!--Card content-->
           <div class="card-body">
             <!--Title-->
@@ -20,12 +41,24 @@
             <!--Button-->
             <a href="/pet/show/<%= favorite.petId.id %>" class="btn btn-primary float-right">View</a>
             <form class="form" action="/favorites/destroy/<%= favorite.id %>" method="POST">
-              <input type="hidden" name="path" type="text" value="/favorites" />
+              <input type="hidden" name="path" value="/favorites" />
               <button class="btn btn-primary" type="submit">Unfavorite</button>
             </form>
-
           </div>
         </div>
       </div>
       <!-- </div> -->
       <% }) %>
+    </div>
+  </div>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.0/mixitup.min.js"></script>
+<script>
+var mixer = mixitup('.container', {
+  selectors: {
+    control: '[data-mixitup-control]'
+  }
+});
+
+</script>

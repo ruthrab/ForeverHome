@@ -61,7 +61,7 @@ module.exports = {
 						req.session.Shelter = shelter;
 						res.redirect('shelter/show/'+shelter.id);
 					}else{
-						res.redirect('/');
+						res.redirect('/pet');
 					}
 				});
                 

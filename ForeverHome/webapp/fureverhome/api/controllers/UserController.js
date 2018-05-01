@@ -53,7 +53,7 @@ module.exports = {
       if (req.session.User.isShelter) {
         return res.redirect('/shelter/new');
       }
-      return res.redirect('/');
+      return res.redirect('/pet');
     });
   }
 };
