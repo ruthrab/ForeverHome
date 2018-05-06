@@ -1,7 +1,4 @@
-<% if(favorites.length == 0){ %>
-  <p>No favorite pets</p>
-  <% } %>
-  <div class="container-fluid">
+<div class="container-fluid">
       <div class="row">
         <nav class="col-md-1 bg-light sidebar">
           <ul class="nav flex-column mt-4 mb-4">
@@ -49,6 +46,11 @@
       </div>
       <!-- </div> -->
       <% }) %>
+    </div>
+    <div class="text-center">
+    <% if(favorites.length == 0){ %>
+      <p>No favorite pets</p>
+      <% } %>
     </div>
   </div>
 </div>

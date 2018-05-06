@@ -125,7 +125,6 @@ module.exports = {
         console.log(err);
         return next(err);
       }
-
       if (!pet) return next('Pet doesn\'t exist.');
 
       Pet.destroy(req.param('id'), function petDestroyed(err) {
@@ -133,6 +132,13 @@ module.exports = {
           console.log(err);
           return next(err);
         }
+        Favorites.destroy({petId: pet.id},function favoritesDestroyed(err) {
+          if (err) {
+            console.log(err);
+            return next(err);
+          }
+        });
+        
       });
 
       res.redirect('/shelter/show/' + req.session.Shelter.id);

@@ -26,38 +26,143 @@
   }
 
 </style>
+
 <div class="custom mt-4">
-  <form class="form-signup" action="/user/create" method="POST">
-    <h1 class="h3 mb-3 font-weight-normal text-center">Create an Account</h1>
+  <form action="/user/create" method="POST" id="sign-up-form" class="form-signup">
+    <h2 class="form-signin-heading">Create an account</h2>
+
     <% if(flash && flash.formErrors) { %>
       <ul class="alert alert-success">
-        <% var thing =  JSON.stringify(flash.err[error],["message"]); %>
-          <li>
-            <%- thing.substring(12, thing.length-2) %>
-          </li>
-      </ul>
-      <% } %>
-        <div class="control-group mb-4">
-          <label for="input" class="sr-only">User Name</label>
-          <input type="text" id="inputUsername" class="form-control" placeholder="Username" autofocus name="username" value="<% if(old) { %><%= old.username %><%} %>">
-        </div>
-        <div class="control-group mb-4">
-          <label for="input" class="sr-only">Email</label>
-          <input type="text" id="inputEmail" class="form-control" placeholder="Email" name="email" value="<% if(old) { %><%= old.email %><%} %>">
-        </div>
-        <div class="control-group mb-4">
-          <label for="password" class="sr-only">Password</label>
-          <input type="password" class="form-control" placeholder="Password" name="password" id="password">
-        </div>
-        <div class="control-group mb-2">
-          <label for="password" class="sr-only">Confirm Password</label>
-          <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" name="confirmation">
-        </div>
-        <div class="form-check mb-2">
-          <input type="checkbox" class="form-check-input" id="isAShelter" name="isShelter">
-          <label class="form-check-label" for="isShelter">I'm from a Shelter</label>
-        </div>
-        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
-  </form>
+    <% Object.keys(flash.formErrors).forEach(function(error) { %>
+      <% var thing = JSON.stringify(flash.formErrors[error],["message"]); %>
+      <li><%- thing.substring(13, thing.length-3)  %></li>
+    <% }) %>
+    </ul>
+    <% } %>
+            <input type="text" class="form-control" placeholder="username" id="form_username" name="username"><span class="error_form" id="username_error_message"></span>
+            <input type="email" class="form-control" placeholder="email address" id="form_email" name="email"><span class="error_form" id="email_error_message"></span>
+            <input type="password" class="form-control" placeholder="password" id="form_password" name="password"><span class="error_form" id="password_error_message"></span>
+            <input type="password" class="form-control" placeholder="password confirmation" id="form_retype_password" name="confirmation"><span class="error_form" id="retype_password_error_message"></span>
+            <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Create Account" />
+            
+      </form>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $(function() {
+
+$("#username_error_message").hide();
+$("#password_error_message").hide();
+$("#retype_password_error_message").hide();
+$("#email_error_message").hide();
+
+var error_username = false;
+var error_password = false;
+var error_retype_password = false;
+var error_email = false;
+
+$("#form_username").focusout(function() {
+
+  check_username();
+  
+});
+
+$("#form_password").focusout(function() {
+
+  check_password();
+  
+});
+
+$("#form_retype_password").focusout(function() {
+
+  check_retype_password();
+  
+});
+
+$("#form_email").focusout(function() {
+
+  check_email();
+  
+});
+
+function check_username() {
+
+  var username_length = $("#form_username").val().length;
+  
+  if(username_length < 5 || username_length > 20) {
+    $("#username_error_message").html("Should be between 5-20 characters");
+    $("#username_error_message").show();
+    error_username = true;
+  } else {
+    $("#username_error_message").hide();
+  }
+
+}
+
+function check_password() {
+
+  var password_length = $("#form_password").val().length;
+  
+  if(password_length < 2) {
+    $("#password_error_message").html("At least 2 characters");
+    $("#password_error_message").show();
+    error_password = true;
+  } else {
+    $("#password_error_message").hide();
+  }
+
+}
+
+function check_retype_password() {
+
+  var password = $("#form_password").val();
+  var retype_password = $("#form_retype_password").val();
+  
+  if(password !=  retype_password) {
+    $("#retype_password_error_message").html("Passwords don't match");
+    $("#retype_password_error_message").show();
+    error_retype_password = true;
+  } else {
+    $("#retype_password_error_message").hide();
+  }
+
+}
+
+function check_email() {
+
+  var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+
+  if(pattern.test($("#form_email").val())) {
+    $("#email_error_message").hide();
+  } else {
+    $("#email_error_message").html("Invalid email address");
+    $("#email_error_message").show();
+    error_email = true;
+  }
+
+}
+
+$("#sign-up-form").submit(function() {
+                    
+  error_username = false;
+  error_password = false;
+  error_retype_password = false;
+  error_email = false;
+                    
+  check_username();
+  check_password();
+  check_retype_password();
+  check_email();
+  
+  if(error_username == false && error_password == false && error_retype_password == false && error_email == false) {
+    return true;
+  } else {
+    return false;	
+  }
+
+});
+
+});
+</script>
+
