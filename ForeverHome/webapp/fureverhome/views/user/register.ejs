@@ -29,7 +29,7 @@
 
 <div class="custom mt-4">
   <form action="/user/create" method="POST" id="sign-up-form" class="form-signup">
-    <h2 class="form-signin-heading">Create an account</h2>
+    <h2 class="form-signin-heading text-center">Create an account</h2>
 
     <% if(flash && flash.formErrors) { %>
       <ul class="alert alert-success">
@@ -39,11 +39,15 @@
     <% }) %>
     </ul>
     <% } %>
-            <input type="text" class="form-control" placeholder="username" id="form_username" name="username"><span class="error_form" id="username_error_message"></span>
-            <input type="email" class="form-control" placeholder="email address" id="form_email" name="email"><span class="error_form" id="email_error_message"></span>
-            <input type="password" class="form-control" placeholder="password" id="form_password" name="password"><span class="error_form" id="password_error_message"></span>
-            <input type="password" class="form-control" placeholder="password confirmation" id="form_retype_password" name="confirmation"><span class="error_form" id="retype_password_error_message"></span>
+            <input type="text" class="form-control mb-4" placeholder="username" id="form_username" name="username"><span class="error_form" id="username_error_message"></span>
+            <input type="email" class="form-control mb-4" placeholder="email address" id="form_email" name="email"><span class="error_form" id="email_error_message"></span>
+            <input type="password" class="form-control mb-4" placeholder="password" id="form_password" name="password"><span class="error_form" id="password_error_message"></span>
+            <input type="password" class="form-control mb-2" placeholder="password confirmation" id="form_retype_password" name="confirmation"><span class="error_form" id="retype_password_error_message"></span>
             <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+            <div class="form-check mb-2">
+              <input type="checkbox" class="form-check-input" id="isAShelter" name="isShelter">
+              <label class="form-check-label" for="isShelter">I'm from a Shelter</label>
+            </div>
             <input type="submit" class="btn btn-lg btn-primary btn-block" value="Create Account" />
             
       </form>
