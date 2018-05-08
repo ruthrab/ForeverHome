@@ -71,9 +71,7 @@ module.exports = {
 
 	destroy: function(req, res, next) {
 
-		User.findOne(req.session.User.id, function foundUser(err, user) {
-
-			var userId = req.session.User.id;
+		User.findOne(req.param('id'), function foundUser(err, user) {
 
 			if (user) {
 				// Wipe out the session (log out)

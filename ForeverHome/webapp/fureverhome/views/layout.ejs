@@ -79,7 +79,7 @@
           <% } %>
             <% if (session.authenticated) { %>
               <li class="nav-iem active"></li>
-              <a class="btn btn-primary navbar-btn navbar-right" href="/session/destroy">Logout</a>
+              <a class="btn btn-primary navbar-btn navbar-right" href="/session/destroy/<%= session.User.id %>">Logout</a>
               </li>
               <% } %>
     </div>

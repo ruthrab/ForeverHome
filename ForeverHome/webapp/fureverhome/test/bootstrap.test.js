@@ -1,12 +1,28 @@
-var Sails = require('sails');
+var sails = require('sails');
 
-before(function(done){
-    Sails.lift({}, function(err, server){
-        if(err) return done(err);
-        done(err, server);
-    });
+// Before running any tests...
+before(function(done) {
+
+  this.timeout(10000);
+
+  sails.lift({
+    hooks: { grunt: false },
+    log: { level: 'warn' },
+
+  }, function(err) {
+    if (err) { return done(err); }
+    return done();
+  });
 });
 
-after(function(done){
-    Sails.lower(done);
+// After all tests have finished...
+after(function(done) {
+  User.destroy({}, function userDestroyed(err) {
+    if (err) {
+      console.log(err);
+      return next(err);
+    }
+  });
+  sails.lower(done);
+
 });

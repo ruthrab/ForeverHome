@@ -39,10 +39,10 @@
     <% }) %>
     </ul>
     <% } %>
-            <input type="text" class="form-control mb-4" placeholder="username" id="form_username" name="username"><span class="error_form" id="username_error_message"></span>
-            <input type="email" class="form-control mb-4" placeholder="email address" id="form_email" name="email"><span class="error_form" id="email_error_message"></span>
-            <input type="password" class="form-control mb-4" placeholder="password" id="form_password" name="password"><span class="error_form" id="password_error_message"></span>
-            <input type="password" class="form-control mb-2" placeholder="password confirmation" id="form_retype_password" name="confirmation"><span class="error_form" id="retype_password_error_message"></span>
+            <input type="text" class="form-control mb-4" placeholder="username" id="form_username" name="username" required><span class="error_form" id="username_error_message"></span>
+            <input type="email" class="form-control mb-4" placeholder="email address" id="form_email" name="email" required><span class="error_form" id="email_error_message"></span>
+            <input type="password" class="form-control mb-4" placeholder="password" id="form_password" name="password" required><span class="error_form" id="password_error_message"></span>
+            <input type="password" class="form-control mb-2" placeholder="password confirmation" id="form_retype_password" required name="confirmation"><span class="error_form" id="retype_password_error_message"></span>
             <input type="hidden" name="_csrf" value="<%= _csrf %>" />
             <div class="form-check mb-2">
               <input type="checkbox" class="form-check-input" id="isAShelter" name="isShelter">
