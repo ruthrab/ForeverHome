@@ -16,7 +16,7 @@ Rui Dai
 
 Furever Home is a Node.js based web application designed to allow animal shelters and families looking to adopt a pet a place where they find each other.  Animal shelters can publicize the animals they currently have that are looking for homes.  Users meanwhile can browse and filter the list of all animals on the site to help find the one that is a match for them.
 
-1. **Installation and Build Guide Details**
+2. **Installation and Build Guide Details**
 
 1. log into ceclnx01.cec.miamioh.edu with the SSH client of your choice
 2. Navigate to the directory you would like to install Furever home in.
@@ -35,7 +35,7 @@ If you used the home directory in step **B** the directory will be ~/FureverHome
 node app.js
 9. The website can now be found at [http://ceclnx01.cec.miamioh.edu:1337/](http://ceclnx01.cec.miamioh.edu:1337/)
 
-1. **User&#39;s Guide**
+3. **User&#39;s Guide**
 
 - To register a new user as a shelter, click the login in link in the top right of the page. Then select the &quot;Register&quot; link.
 - Make sure you select the option that the account is for a shelter
@@ -54,7 +54,7 @@ node app.js
 
 - To send a link to someone click the view button for the pet and then copy the address from the browser&#39;s address bar and send it to someone that might want to adopt that pet.
 
-1. **Gallery Maintenance**
+4. **Gallery Maintenance**
 
 - To make updates make the fureverhome directory from step G in the install the working directory then type &quot;git pull&quot; in the command line.
 - Then type the following command to install any other needed packages
@@ -64,7 +64,7 @@ npm install --no-option
 - To make changes to the look and feel of the site changes can be made to the layout.ejs file located in the views folder
 - Making changes to the various other .ejs files will change the look of those features.  For example homepage.ejs edits will change the look of the homepage while. Editing the register.ejs file in the user folder will change the look of user registration.
 
-1. **Known Issues and Vulnerabilities**
+5. **Known Issues and Vulnerabilities**
 
 - There is no way to change an account type from a user account to a shelter account
 - There is no way to change an account type from a shelter account to a user account
