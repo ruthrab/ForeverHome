@@ -23,14 +23,14 @@
       <div class="row">
         <% _.each(pets, function(pet) { %>
           <div class="col-md-4">
-            <div class="card mix <%= pet.typeOfPet %> <%= pet.sex %> <%= pet.size %>">
-              <img class="card-img-top img-fluid" src="<%= pet.linkToImage %>" alt="<%= pet.name %> Image" style="width: 23rem; height: 15rem;"></img>
+            <div class="card mix <%- pet.typeOfPet %> <%- pet.sex %> <%- pet.size %>">
+              <img class="card-img-top img-fluid" src="<%- pet.linkToImage %>" alt="<%- pet.name %> Image" style="width: 23rem; height: 15rem;"></img>
               <div class="card-body">
                 <h4 class="card-title">
-                  <%= pet.name %>
+                  <%- pet.name %>
                 </h4>
                 <p class="card-text">
-                  <%= pet.summary %>
+                  <%- pet.summary %>
                 </p>
                 <a href="/pet/show/<%= pet.id %>" class="btn btn-primary float-right">View</a>
                 <% if(session.authenticated){ %>

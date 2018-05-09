@@ -66,7 +66,8 @@
                   <a class="dropdown-item" href="/pet/new">Add a Pet</a>
                   <% } %>
                     <% } %>
-                      <% if(session.Shelter == undefined){ %>
+
+                      <% if(session.Shelter == undefined && !session.User.isShelter){ %>
                         <a class="dropdown-item" href="/favorites">View Favorites</a>
                         <% } %>
                           <% } %>

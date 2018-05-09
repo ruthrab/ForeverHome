@@ -9,15 +9,15 @@
       <th></th>
     </tr>
     <% _.each(shelters, function(shelter) { %>
-      <tr data-id="<%= shelter.id %>" data-model="shelter">
+      <tr data-id="<%- shelter.id %>" data-model="shelter">
         <td>
-          <%= shelter.shelterName %>
+          <%- shelter.shelterName %>
         </td>
         <td>
-          <%= shelter.phonenumber %>
+          <%- shelter.phonenumber %>
         </td>
         <td>
-          <%= shelter.managingAccount.email %>
+          <%- shelter.managingAccount.email %>
         </td>
         <!-- <td>
           <%= shelter.location %>
